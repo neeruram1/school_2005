@@ -13,7 +13,7 @@ class School
   end
 
   def end_time
-  end_time = @start_time[0].to_i + @hours_in_school_day
+  end_time = @start_time[0..1].to_i + @hours_in_school_day
   end_time.to_s.insert(-1, ":00")
   end
 
@@ -31,5 +31,10 @@ class School
       standard_student_names << student_name.capitalize
     end
     @student_names = standard_student_names
+  end
+
+  def convert_end_time_to_clock_time
+    clock_time = 12 - end_time[0..1].to_i
+    clock_time.abs.to_s.insert(-1, ":00")
   end
 end
