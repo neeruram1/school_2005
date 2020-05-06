@@ -7,4 +7,13 @@ class School
     @hours_in_school_day = hours_in_school_day
     @student_names = []
   end
+
+  def add_student_name(student_name)
+    @student_names << student_name
+  end
+
+  def end_time
+  end_time = @start_time[0].to_i + @hours_in_school_day
+  end_time.to_s.insert(-1, ":00") 
+  end
 end
